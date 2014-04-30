@@ -2,8 +2,20 @@ Create a representation of the Berlin Clock for a given time (hh::mm:ss).
 
 Solution
 
+Most of the logic seats in the BerlinClock class: methods for creating a string representation for
+a given row of lamps and a text representation of the clock as a whole (so it can be unit tested against
+cases specified below).
 
-I didn't use CamelCase in test names because I believe using underscores makes test names more readable.
+Initially I have used an instance of Joda LocalTime to parse the input String,
+however during the development it turned out LocalTime is unable to handle "24:00:00" input. I created a wrapper
+class around LocalTime as a walkaround and created a test suite for it. The additional benefit from using a wrapper
+is that it allows me to easily change the way the string is parsed if Joda library will not be enough some day.
+
+Please note I didn't use CamelCase in test names because I believe using underscores makes test names more readable,
+however I am fine with other approaches:)
+
+
+
 The Berlin Uhr (Clock) is a rather strange way to show the time. On the top of the clock there is a yellow lamp that
 blinks on/off every two seconds. The time is calculated by adding rectangular lamps.
 
